@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="5.2.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Pure.DI" Version="1.1.59">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Splat" Version="14.4.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <!-- <PackageReference Include="AutoInjection" Version="1.0.0-alpha2" />
+    <PackageReference Include="AutoInjection" Version="1.0.0-alpha2" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoInjection.Fody\AutoInjection.Fody.csproj" ReferenceOutputAssembly="False" />
+    <ProjectReference Include="..\AutoInjection\AutoInjection.csproj" />
+    <!-- <PackageReference Include="AutoInjection.Fody" Version="1.0.0-alpha2" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <WeaverFiles Include="..\AutoInjection.Fody\bin\$(Configuration)\netstandard2.0\AutoInjection.Fody*" />
+  </ItemGroup>
+    
+  <Target Name="CopyWeavers" BeforeTargets="Fody.WeavingTask">
+    <!-- Fody expects to find weavers in referenced NuGet packages or the Tools directory at the solution level.
+         Since this is for testing purposes before a NuGet package is created, we'll just use the Tools directory
+         until the projects are setup as suggested here: https://github.com/Fody/BasicFodyAddin -->
+    <Copy SourceFiles="@(WeaverFiles)" DestinationFolder="..\Tools" />
+  </Target>
+
+</Project>

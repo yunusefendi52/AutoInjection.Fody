@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoInjection", "AutoInjection\AutoInjection.csproj", "{E644EEC6-04B2-43AD-B2BA-202466DB214C}"
+		ProjectSection(ProjectDependencies) = postProject
+			{9E7D63E6-FE30-444D-8841-7292F1508E1F} = {9E7D63E6-FE30-444D-8841-7292F1508E1F}
+		EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoInjection.Fody", "AutoInjection.Fody\AutoInjection.Fody.csproj", "{9E7D63E6-FE30-444D-8841-7292F1508E1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoInjectionTests", "AutoInjectionTests\AutoInjectionTests.csproj", "{79C4D920-FF38-47CA-A40B-819331A2EB79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E7D63E6-FE30-444D-8841-7292F1508E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7D63E6-FE30-444D-8841-7292F1508E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7D63E6-FE30-444D-8841-7292F1508E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7D63E6-FE30-444D-8841-7292F1508E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E644EEC6-04B2-43AD-B2BA-202466DB214C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E644EEC6-04B2-43AD-B2BA-202466DB214C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E644EEC6-04B2-43AD-B2BA-202466DB214C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E644EEC6-04B2-43AD-B2BA-202466DB214C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C4D920-FF38-47CA-A40B-819331A2EB79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C4D920-FF38-47CA-A40B-819331A2EB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C4D920-FF38-47CA-A40B-819331A2EB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C4D920-FF38-47CA-A40B-819331A2EB79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

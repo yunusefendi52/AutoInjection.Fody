@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <Version>1.0.0-alpha2</Version>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageDescription>Fody extension that will inject service provider get service</PackageDescription>
+    </PropertyGroup>
+
+</Project>
