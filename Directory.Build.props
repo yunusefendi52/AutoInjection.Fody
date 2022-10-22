@@ -2,6 +2,8 @@
     <PropertyGroup>
         <Version>1.0.0-alpha3</Version>
         <LangVersion>latest</LangVersion>
+        <Authors>Yunus Efendi</Authors>
+        <PackageProjectUrl>https://github.com/yunusefendi52/AutoInjection.Fody</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup>
