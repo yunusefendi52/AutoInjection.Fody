@@ -10,6 +10,8 @@ public class MyService2 : IMyService2 { }
 
 public class MyClient
 {
+    public MyClient() { }
+
     public MyClient(
         string param,
         Dictionary<string, object> dict,
