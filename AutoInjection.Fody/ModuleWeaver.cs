@@ -10,7 +10,7 @@ public class ModuleWeaver : BaseModuleWeaver
             ModuleDefinition,
             (v) =>
             {
-                WriteMessage(v, MessageImportance.High);
+                WriteMessage(v, MessageImportance.Low);
             },
             (v) =>
             {
