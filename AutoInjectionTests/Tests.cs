@@ -20,7 +20,7 @@ public class Tests
         dryioc.Register<IMyService, MyService>();
         var provider = dryioc as IServiceProvider;
         AutoInjection.AutoInjection.Instance.Register(provider);
-        
+
         var pureDIServiceProvider = TestsDI.ResolveIServiceProvider();
         AutoInjection.AutoInjection.Instance.Register(pureDIServiceProvider);
     }
@@ -46,5 +46,21 @@ public class Tests
         Assert.Equal(m.Param, param);
         Assert.Same(m.Dict, dict);
         Assert.Same(m.Dict2, dict2);
+    }
+
+    [Fact]
+    public void AutoInjectionAttributeDeleted()
+    {
+        var m = new MyClient();
+        foreach (var ctor in m.GetType().Constructors())
+        {
+            foreach (var item in ctor.GetParameters())
+            {
+                if (item.Name != null && item.Name.Contains("Service", StringComparison.InvariantCultureIgnoreCase) && item.CustomAttributes.Any(v => v.AttributeType.Name.Contains("AutoInjection")))
+                {
+                    Assert.True(false, $"Still has AutoInjection attribute {item.Name}");
+                }
+            }
+        }
     }
 }

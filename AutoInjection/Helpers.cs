@@ -25,8 +25,9 @@ public class AutoInjection
 
     public object? GetService(Type type)
     {
-        foreach (var provider in providers)
+        for (int i = 0; i < providers.Count; i++)
         {
+            var provider = providers[i];
             var service = provider.GetService(type);
             if (service != null)
                 return service;

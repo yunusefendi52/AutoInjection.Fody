@@ -29,19 +29,19 @@ jobs:
         run: dotnet restore
 
       - name: Build Debug
-        run: dotnet build -c Debug --no-restore
+        run: dotnet build -c Debug
 
       - name: Build Release
-        run: dotnet build -c Release --no-restore
+        run: dotnet build -c Release
 
       - name: Test Debug
-        run: dotnet test -c Debug --no-build
+        run: dotnet test -c Debug
 
       - name: Test Release
-        run: dotnet test -c Release --no-build
+        run: dotnet test -c Release
 
       - name: Pack
-        run: dotnet pack -c Release --no-build -o output
+        run: dotnet pack -c Release -o output
 
       - name: Upload NuGet
         if: ${{ inputs.publish }}

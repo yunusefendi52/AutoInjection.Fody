@@ -48,7 +48,8 @@ public static class Injector
                     logInfo?.Invoke("Adding injection");
                     foreach (var param in ctor.Parameters)
                     {
-                        if (param.CustomAttributes.Any(v => v.AttributeType.Name.Contains("AutoInjection")))
+                        var autoInjectionAttr = param.CustomAttributes.FirstOrDefault(v => v.AttributeType.Name.Contains("AutoInjection"));
+                        if (autoInjectionAttr != null)
                         {
                             //if (myService == null)
                             il_ctor_2.Emit(OpCodes.Ldarg, param);
@@ -108,6 +109,8 @@ public static class Injector
                             var lbl_elseEnd_6 = il_ctor_2.Create(OpCodes.Nop);
                             il_ctor_2.Append(lbl_elseEntryPoint_4);
                             il_ctor_2.Append(lbl_elseEnd_6);
+
+                            param.CustomAttributes.Remove(autoInjectionAttr);
                         }
                     }
 
